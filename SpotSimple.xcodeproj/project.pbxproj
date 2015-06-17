@@ -13,6 +13,8 @@
 		E48966BD1B313FC0002B3C5C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E48966BC1B313FC0002B3C5C /* Images.xcassets */; };
 		E48966C01B313FC0002B3C5C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E48966BE1B313FC0002B3C5C /* LaunchScreen.xib */; };
 		E48966CC1B313FC0002B3C5C /* SpotSimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48966CB1B313FC0002B3C5C /* SpotSimpleTests.swift */; };
+		E48966D71B313FDF002B3C5C /* spotify_token_swap.rb in Resources */ = {isa = PBXBuildFile; fileRef = E48966D51B313FDF002B3C5C /* spotify_token_swap.rb */; };
+		E48966D81B313FDF002B3C5C /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48966D61B313FDF002B3C5C /* Spotify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,9 @@
 		E48966C51B313FC0002B3C5C /* SpotSimpleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotSimpleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E48966CA1B313FC0002B3C5C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E48966CB1B313FC0002B3C5C /* SpotSimpleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotSimpleTests.swift; sourceTree = "<group>"; };
+		E48966D51B313FDF002B3C5C /* spotify_token_swap.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = spotify_token_swap.rb; path = ../spotify_token_swap.rb; sourceTree = "<group>"; };
+		E48966D61B313FDF002B3C5C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = ../Spotify.framework; sourceTree = "<group>"; };
+		E48966D91B31406C002B3C5C /* SpotSimple-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpotSimple-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48966D81B313FDF002B3C5C /* Spotify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +83,15 @@
 		E48966B21B313FC0002B3C5C /* SpotSimple */ = {
 			isa = PBXGroup;
 			children = (
+				E48966D51B313FDF002B3C5C /* spotify_token_swap.rb */,
+				E48966D61B313FDF002B3C5C /* Spotify.framework */,
 				E48966B51B313FC0002B3C5C /* AppDelegate.swift */,
 				E48966B71B313FC0002B3C5C /* ViewController.swift */,
 				E48966B91B313FC0002B3C5C /* Main.storyboard */,
 				E48966BC1B313FC0002B3C5C /* Images.xcassets */,
 				E48966BE1B313FC0002B3C5C /* LaunchScreen.xib */,
 				E48966B31B313FC0002B3C5C /* Supporting Files */,
+				E48966D91B31406C002B3C5C /* SpotSimple-Bridging-Header.h */,
 			);
 			path = SpotSimple;
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 				E48966BB1B313FC0002B3C5C /* Main.storyboard in Resources */,
 				E48966C01B313FC0002B3C5C /* LaunchScreen.xib in Resources */,
 				E48966BD1B313FC0002B3C5C /* Images.xcassets in Resources */,
+				E48966D71B313FDF002B3C5C /* spotify_token_swap.rb in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,9 +352,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SpotSimple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpotSimple/SpotSimple-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -352,9 +370,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SpotSimple/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SpotSimple/SpotSimple-Bridging-Header.h";
 			};
 			name = Release;
 		};
