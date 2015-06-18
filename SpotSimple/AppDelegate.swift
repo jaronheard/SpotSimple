@@ -12,9 +12,34 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    let kClientID = "3232e7f472f34d1fa31e360e229f7df2"
+    let kCallbackURL = "Spotsimple://returnAfterLogin"
+    let kTokenSwapURL = "http://localhost:1234/swap"
+    let kTokenRefreshServiceURL = "http://localhost:1234/refresh"
+    var auth = SPTAuth.defaultInstance()
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject?) -> Bool {
+        let canHandle = auth.canHandleURL(url)
+        if canHandle {
+            auth.handleAuthCallbackWithTriggeredAuthURL(url, callback: { (error: NSError!,session: SPTSession!) -> Void in
+                if let errorCheck = error {
+                    println("Authentication Error")
+                    return
+                }
+                let userDefaults = NSUserDefaults.standardUserDefaults()
+                let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
+                userDefaults.setObject(sessionData, forKey: "spotifySession")
+                userDefaults.synchronize()
+                NSNotificationCenter.defaultCenter().postNotificationName("loginSuccessful", object: nil)
+            })
+        }
+        return false
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        auth.clientID = kClientID
+        auth.redirectURL = NSURL(string: kCallbackURL)
+        auth.requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthUserLibraryReadScope]
         // Override point for customization after application launch.
         return true
     }

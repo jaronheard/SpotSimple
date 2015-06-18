@@ -19,7 +19,22 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        LoginButton.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateAfterFirstLogin", name: "loginSuccessful", object: nil)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        
+        if let sessionObject:AnyObject = userDefaults.objectForKey("spotifySession") {
+            //session available
+        } else {
+            LoginButton.hidden = false
+        }
+        
+    }
+    
+    func updateAfterFirstLogin() {
+        LoginButton.hidden = true
     }
     
     @IBAction func LoginWithSpotify(sender: AnyObject) {
