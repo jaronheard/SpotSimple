@@ -8,7 +8,7 @@ require 'encrypted_strings'
 CLIENT_ID = "3232e7f472f34d1fa31e360e229f7df2"
 CLIENT_SECRET = "7e738e3151b04ec7958a5081294bc8b2"
 ENCRYPTION_SECRET = "cFJLyifeUJUBFWdHzVbykfDmPHtLKLGzViHW9aHGmyTLD8hGXC"
-CLIENT_CALLBACK_URL = "Spotsimple://returnAfterLogin"
+CLIENT_CALLBACK_URL = "spotsimple://returnafterspotifylogin"
 AUTH_HEADER = "Basic " + Base64.strict_encode64(CLIENT_ID + ":" + CLIENT_SECRET)
 SPOTIFY_ACCOUNTS_ENDPOINT = URI.parse("https://accounts.spotify.com")
 

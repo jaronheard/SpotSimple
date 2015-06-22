@@ -10,10 +10,10 @@ import UIKit
 
 class ViewController: UIViewController {
     let kClientID = "3232e7f472f34d1fa31e360e229f7df2"
-    let kCallbackURL = "Spotsimple://returnAfterLogin"
+    let kCallbackURL = "spotsimple://returnafterspotifylogin"
     let kTokenSwapURL = "http://localhost:1234/swap"
     let kTokenRefreshServiceURL = "http://localhost:1234/refresh"
-    
+    var auth = SPTAuth.defaultInstance()
     
     @IBOutlet weak var LoginButton: UIButton!
     
@@ -38,8 +38,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func LoginWithSpotify(sender: AnyObject) {
-        let auth = SPTAuth.defaultInstance()
-        let loginURL = SPTAuth.loginURLForClientId(kClientID, withRedirectURL: NSURL(string: kCallbackURL), scopes: [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthUserLibraryReadScope], responseType: "code")
+        let loginURL = SPTAuth.defaultInstance().loginURL
         UIApplication.sharedApplication().openURL(loginURL)
     }
     

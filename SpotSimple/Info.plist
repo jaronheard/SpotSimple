@@ -21,7 +21,7 @@
 			<string>com.jaronheard.spotsimple</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Spotsimple</string>
+				<string>spotsimple</string>
 			</array>
 		</dict>
 	</array>
