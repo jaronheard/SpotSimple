@@ -15,6 +15,7 @@
 		E48966CC1B313FC0002B3C5C /* SpotSimpleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48966CB1B313FC0002B3C5C /* SpotSimpleTests.swift */; };
 		E48966D71B313FDF002B3C5C /* spotify_token_swap.rb in Resources */ = {isa = PBXBuildFile; fileRef = E48966D51B313FDF002B3C5C /* spotify_token_swap.rb */; };
 		E48966D81B313FDF002B3C5C /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48966D61B313FDF002B3C5C /* Spotify.framework */; };
+		E4FB89A01B37A03600B9A868 /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB899F1B37A03600B9A868 /* Session.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		E48966D51B313FDF002B3C5C /* spotify_token_swap.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; name = spotify_token_swap.rb; path = ../spotify_token_swap.rb; sourceTree = "<group>"; };
 		E48966D61B313FDF002B3C5C /* Spotify.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Spotify.framework; path = ../Spotify.framework; sourceTree = "<group>"; };
 		E48966D91B31406C002B3C5C /* SpotSimple-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SpotSimple-Bridging-Header.h"; sourceTree = "<group>"; };
+		E4FB899F1B37A03600B9A868 /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 				E48966D51B313FDF002B3C5C /* spotify_token_swap.rb */,
 				E48966D61B313FDF002B3C5C /* Spotify.framework */,
 				E48966B51B313FC0002B3C5C /* AppDelegate.swift */,
+				E4FB899F1B37A03600B9A868 /* Session.swift */,
 				E48966B71B313FC0002B3C5C /* ViewController.swift */,
 				E48966B91B313FC0002B3C5C /* Main.storyboard */,
 				E48966BC1B313FC0002B3C5C /* Images.xcassets */,
@@ -224,6 +227,7 @@
 			files = (
 				E48966B81B313FC0002B3C5C /* ViewController.swift in Sources */,
 				E48966B61B313FC0002B3C5C /* AppDelegate.swift in Sources */,
+				E4FB89A01B37A03600B9A868 /* Session.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,6 +440,7 @@
 				E48966D11B313FC0002B3C5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E48966D21B313FC0002B3C5C /* Build configuration list for PBXNativeTarget "SpotSimpleTests" */ = {
 			isa = XCConfigurationList;
@@ -444,6 +449,7 @@
 				E48966D41B313FC0002B3C5C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
