@@ -22,11 +22,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if canHandle {
             SPTAuth.defaultInstance().handleAuthCallbackWithTriggeredAuthURL(url, callback: { (error: NSError!,session: SPTSession!) -> Void in
                 if let errorCheck = error {
-                    println("Authentication Error")
-                    return
+                    print("Authentication Error")
+                } else {
+                    syncSession(session, "firstLoginSuccessful")
                 }
-                syncSession(session)
-                NSNotificationCenter.defaultCenter().postNotificationName("loginSuccessful", object: nil)
             })
         }
         return false
@@ -35,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         SPTAuth.defaultInstance().clientID = kClientID
         SPTAuth.defaultInstance().redirectURL = NSURL(string: kCallbackURL)
+        SPTAuth.defaultInstance().tokenSwapURL = NSURL(string: kTokenSwapURL)
+        SPTAuth.defaultInstance().tokenRefreshURL = NSURL(string: kTokenRefreshServiceURL)
         SPTAuth.defaultInstance().requestedScopes = [SPTAuthStreamingScope, SPTAuthPlaylistReadPrivateScope, SPTAuthPlaylistModifyPublicScope,SPTAuthPlaylistModifyPrivateScope,SPTAuthUserFollowModifyScope, SPTAuthUserFollowReadScope,SPTAuthUserLibraryModifyScope,SPTAuthUserLibraryReadScope,SPTAuthUserReadBirthDateScope,SPTAuthUserReadEmailScope,SPTAuthUserReadPrivateScope]
         return true
     }

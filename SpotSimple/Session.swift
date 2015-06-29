@@ -9,9 +9,16 @@
 import Foundation
 
 func syncSession(session: SPTSession) {
-    SPTAuth.defaultInstance().session = session
     let userDefaults = NSUserDefaults.standardUserDefaults()
     let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
     userDefaults.setObject(sessionData, forKey: "spotifySession")
     userDefaults.synchronize()
+}
+
+func syncSession(session: SPTSession, notification: String) {
+    let userDefaults = NSUserDefaults.standardUserDefaults()
+    let sessionData = NSKeyedArchiver.archivedDataWithRootObject(session)
+    userDefaults.setObject(sessionData, forKey: "spotifySession")
+    userDefaults.synchronize()
+    NSNotificationCenter.defaultCenter().postNotification(NSNotification(name: notification, object: nil))
 }
